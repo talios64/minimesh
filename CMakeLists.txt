@@ -13,7 +13,7 @@ include_directories(
 
 set(EXE_SOURCES
   src/options.cpp
-  # Add other source files here, one by line
+  src/viewer.cpp
 )
 
 add_executable(${PROJECT_NAME} src/main.cpp ${EXE_SOURCES})
