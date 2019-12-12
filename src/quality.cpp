@@ -39,6 +39,28 @@ void QualityChecker::Quality_Analysis(vtkSmartPointer<vtkDataSet> dataset)
         std::cout << "value " << i << " : " << val << std::endl;
     }
     // std::cout << "mesure qualité : " << qualityFilter->GetTriangleQualityMeasure() << std::endl;
+
+  // Visualize
+  auto mapper = vtkSmartPointer<vtkDataSetMapper>::New();
+  mapper->SetInputData(dataset);
+  mapper->SetScalarRange(dataset->GetScalarRange());
+
+  auto actor = vtkSmartPointer<vtkActor>::New();
+  actor->SetMapper(mapper);
+
+  auto renderer = vtkSmartPointer<vtkRenderer>::New();
+
+  auto renderWindow =vtkSmartPointer<vtkRenderWindow>::New();
+  renderWindow->AddRenderer(renderer);
+
+  auto renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+  renderWindowInteractor->SetRenderWindow(renderWindow);
+
+  renderer->AddActor(actor);
+  renderer->SetBackground(.3, .6, .3); // Background color green
+
+  renderWindow->Render();
+  renderWindowInteractor->Start();
 }
 
 
