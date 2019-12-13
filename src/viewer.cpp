@@ -35,7 +35,6 @@ void Viewer::view(vtkSmartPointer<vtkDataSet> dataset)
   auto renderWindow = vtkSmartPointer<vtkRenderWindow>::New();
   renderWindow->AddRenderer(renderer);
 
-
   auto interactor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
   interactor->SetRenderWindow(renderWindow);
 

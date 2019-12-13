@@ -2,7 +2,7 @@
 
 enum TransformType
 {
-  // TODO
+    TRANSFROM_MERGE, TRANSFORM_TRANSLATION
 };
 
 struct Params
@@ -25,8 +25,8 @@ struct TranslationParams : public Params
 class Transform
 {
 public:
-  Transform(void) {}
+  Transform(void);
   ~Transform(void) {}
 
-  // TODO
+  // void translate(vtkSmartPointer<vtkDataSet> dataset, std::vector<double> coords);
 };

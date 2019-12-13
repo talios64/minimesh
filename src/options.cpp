@@ -1,5 +1,5 @@
 #include <memory>
-
+#include <iostream>
 #include "options.hpp"
 
 OptionsParser::OptionsParser(const std::string& file_name)
@@ -10,9 +10,9 @@ OptionsParser::OptionsParser(const std::string& file_name)
 
 void OptionsParser::parse(void)
 {
+  std::cout <<"cool\n";
   auto transform = m_data->get_table("transform");
   auto name = *transform->get_as<std::string>("name");
-
   if (name.compare("merge") == 0) {
     bool merge_nodes = *transform->get_as<bool>("merge_nodes");
     
@@ -24,7 +24,6 @@ void OptionsParser::parse(void)
     bool compute_quality = *quality->get_as<bool>("compute_quality");
   } else if (name.compare("translate") == 0) {
     std::vector<double> coords = *transform->get_array_of<double>("translation");
-
     auto io = m_data->get_table("io");
     std::string mesh = *io->get_as<std::string>("input");
     std::string result_file_name = *io->get_as<std::string>("output");

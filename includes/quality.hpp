@@ -1,12 +1,15 @@
 #pragma once
 
+#include <vtkSmartPointer.h>
+
+
 class QualityChecker
 {
 public:
-  QualityChecker() {}
+  QualityChecker(void);
   ~QualityChecker(void) {}
 
-  // TODO
+  void Quality_Analysis(vtkSmartPointer<vtkDataSet> dataset);
 
 private:
   // TODO

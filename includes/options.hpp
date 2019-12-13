@@ -13,7 +13,7 @@ public:
 
   // TODO: modifier le type de retour en cohérence
   // avec la structure de données renvoyée.
-  void parse(void);
+  void parse(void); // retour des données
 
 private:
   std::string m_file_name;
